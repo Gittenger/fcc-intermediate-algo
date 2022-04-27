@@ -12,8 +12,8 @@ export function translatePigLatin(str: string): string {
 
 /*
 TIME
-O(n) + O(m)
+O(n)
 
 SPACE
-O(n) + O(m)
+O(n)
 */
