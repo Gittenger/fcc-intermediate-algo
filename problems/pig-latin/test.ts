@@ -4,7 +4,7 @@ test('function exists', () => {
 	expect(translatePigLatin).toBeDefined()
 })
 
-test('function returns array', () => {
+test('function returns string', () => {
 	expect(typeof translatePigLatin('test')).toBe('string')
 })
 
