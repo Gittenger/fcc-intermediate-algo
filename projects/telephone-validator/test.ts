@@ -1,0 +1,42 @@
+import { telephoneCheck } from './code'
+
+test('function exists', () => {
+  expect(telephoneCheck).toBeDefined()
+})
+
+test('function returns string', () => {
+  expect(typeof telephoneCheck('')).toBe('boolean')
+})
+
+test('check values', () => {
+  expect(telephoneCheck('1 555-555-5555')).toStrictEqual(true)
+  expect(telephoneCheck('1 (555) 555-5555')).toStrictEqual(true)
+  expect(telephoneCheck('5555555555')).toStrictEqual(true)
+  expect(telephoneCheck('555-555-5555')).toStrictEqual(true)
+  expect(telephoneCheck('(555)555-5555')).toStrictEqual(true)
+  expect(telephoneCheck('1(555)555-5555')).toStrictEqual(true)
+  expect(telephoneCheck('555-5555')).toStrictEqual(false)
+  expect(telephoneCheck('5555555')).toStrictEqual(false)
+  expect(telephoneCheck('1 555)555-5555')).toStrictEqual(false)
+  expect(telephoneCheck('1 555 555 5555')).toStrictEqual(true)
+  expect(telephoneCheck('1 456 789 4444')).toStrictEqual(true)
+  expect(telephoneCheck('123**&!!asdf#')).toStrictEqual(false)
+  expect(telephoneCheck('(6054756961)')).toStrictEqual(false)
+  expect(telephoneCheck('2 (757) 622-7382')).toStrictEqual(false)
+  expect(telephoneCheck('0 (757) 622-7382')).toStrictEqual(false)
+  expect(telephoneCheck('-1 (757) 622-7382')).toStrictEqual(false)
+  expect(telephoneCheck('2 757 622-7382')).toStrictEqual(false)
+  expect(telephoneCheck('10 (757) 622-7382')).toStrictEqual(false)
+  expect(telephoneCheck('27576227382')).toStrictEqual(false)
+  expect(telephoneCheck('(275)76227382')).toStrictEqual(false)
+  expect(telephoneCheck('2(757)6227382')).toStrictEqual(false)
+  expect(telephoneCheck('2(757)622-7382')).toStrictEqual(false)
+  expect(telephoneCheck('555)-555-5555')).toStrictEqual(false)
+  expect(telephoneCheck('(555-555-5555')).toStrictEqual(false)
+  expect(telephoneCheck('(555)5(55?)-5555')).toStrictEqual(false)
+  expect(telephoneCheck('55 55-55-555-5')).toStrictEqual(false)
+  expect(telephoneCheck('11 555-555-5555')).toStrictEqual(false)
+  expect(telephoneCheck('(555)5(55?)-5555')).toStrictEqual(false)
+  expect(telephoneCheck('55 55-55-555-5')).toStrictEqual(false)
+  expect(telephoneCheck('11 555-555-5555')).toStrictEqual(false)
+})
